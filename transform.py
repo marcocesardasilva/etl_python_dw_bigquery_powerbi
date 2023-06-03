@@ -44,7 +44,7 @@ def group_files(data_folder,file):
     df['sk_localidade'] = pd.factorize(df['loja'] + '_' + df['cidade'] + '_' + df['uf'] + '_' + df['regiao'])[0] + 1
     df['sk_produto'] = pd.factorize(df['produto'] + '_' + df['subcategoria'] + '_' + df['categoria'] + '_' + df['departamento'])[0] + 1
     df['sk_promocao'] = pd.factorize(df['promocao'] + '_' + df['tipo_reducao_preco'] + '_' + df['veiculo_divulgacao'] + '_' + df['tipo_display'])[0] + 1
-    df['sk_periodo'] = pd.factorize(df['data'].dt.strftime('%Y-%m-%d') + '_' + df['flag_feriado'])[0] + 1
+    df['sk_periodo'] = pd.factorize(df['data'].dt.strftime('%Y-%m-%d') + '_' + str(df['dia']) + '_' + str(df['mes']) + '_' + str(df['ano']) + '_' + df['dia_da_semana'] + '_' + df['flag_feriado'])[0] + 1
 
     print("Dataframe único criado com todos os dados.")
     print("--------------------------------------------------------------------------")
